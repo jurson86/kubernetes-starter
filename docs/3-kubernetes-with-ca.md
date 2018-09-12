@@ -67,7 +67,7 @@ $ service etcd stop && rm -fr /var/lib/etcd/*
 跟基础环境搭建一样，我们需要生成kubernetes-with-ca的所有相关配置文件
 ```bash
 $ cd ~/kubernetes-starter
-#按照配置文件的提示编辑好配置
+#按照配置文件的提示编辑好配置,注意更改 etcd为 https 协议
 $ vi config.properties
 #生成配置
 $ ./gen-config.sh with-ca
@@ -358,7 +358,7 @@ $ kubectl config set-context default \
         --kubeconfig=bootstrap.kubeconfig
 #选择上下文
 $ kubectl config use-context default --kubeconfig=bootstrap.kubeconfig
-#将刚生成的文件移动到合适的位置
+#将刚生成的文件移动到合适的位置  工作节点 对应路径
 $ mv bootstrap.kubeconfig /etc/kubernetes/
 ```
 #### 10.3 准备cni配置
